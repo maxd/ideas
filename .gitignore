@@ -1,0 +1,9 @@
+# RubyMine stuff
+.idea
+
+# MAC OS stuff
+.DS_Store
+
+# Bundler stuff
+vendor/bundle
+Gemfile.lock
