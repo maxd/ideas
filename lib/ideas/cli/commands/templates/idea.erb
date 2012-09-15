@@ -1,0 +1,14 @@
+idea 'My first idea' do
+  short_description 'Just my idea'
+
+  description <<-EOF
+    This is my first idea. I like it.
+  EOF
+
+  state :new
+  tags :first_idea, :my_idea
+
+  feature 1000, 'Discuss idea with friends'
+  feature 1000, 'Publish idea in blog'
+  feature 900,  'Realize idea use Ruby'
+end

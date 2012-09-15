@@ -2,4 +2,4 @@
 
 require File.expand_path('../../lib/ideas', __FILE__)
 
-Ideas::CLI::Application.new.run(ARGV)
+Ideas::CLI::Application.new.run(%w(project) + ARGV)

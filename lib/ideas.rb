@@ -1,1 +1,1 @@
-Dir[File.expand_path('../**/*.rb', __FILE__)].each{ |f| require f }
+Dir[File.expand_path('../**/*.rb', __FILE__)].reject{|f| /ideas\/cli\/commands/ =~ f }.each{|f| require f }
