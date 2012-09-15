@@ -7,3 +7,4 @@
 # Bundler stuff
 vendor/bundle
 Gemfile.lock
+pkg
