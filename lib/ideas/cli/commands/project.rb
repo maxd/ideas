@@ -31,7 +31,27 @@ module Ideas::CLI::Commands
 
       create_dir(ideas_dir)
 
-      create_file_from_template 'idea.erb', File.join(ideas_dir, '0001_idea.rb')
+      create_file_from_template 'idea.erb', File.join(ideas_dir, '0001_idea.rb'), {
+        title: 'My first idea',
+        short_description: 'Just my idea',
+        description: 'This is my first idea. I like it.',
+        state: :new,
+        tags: [:first_idea, :my_idea],
+        features: [
+          {
+              weight: 1000,
+              title: 'Discuss idea with friends'
+          },
+          {
+              weight: 1000,
+              title: 'Publish idea in blog'
+          },
+          {
+              weight: 900,
+              title: 'Realize idea use Ruby'
+          }
+        ]
+      }
     end
 
   end

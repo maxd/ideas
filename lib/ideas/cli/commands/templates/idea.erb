@@ -1,14 +1,22 @@
-idea 'My first idea' do
-  short_description 'Just my idea'
+idea '<%= self[:title] %>' do
+<% if self[:short_description] -%>
+  short_description '<%= self[:short_description] %>'
+<% end -%>
 
+<% if self[:description] -%>
   description <<-EOF
-    This is my first idea. I like it.
+    <%= self[:description] %>
   EOF
+<% end -%>
 
-  state :new
-  tags :first_idea, :my_idea
+<% if self[:state] -%>
+  state <%= ":#{self[:state]}" %>
+<% end -%>
+<% if self[:tags] -%>
+  tags <%= self[:tags].map{|t| ":#{t}"}.join(', ') %>
+<% end -%>
 
-  feature 1000, 'Discuss idea with friends'
-  feature 1000, 'Publish idea in blog'
-  feature 900,  'Realize idea use Ruby'
+<% self[:features] && self[:features].each do |feature| -%>
+  feature <%= feature[:weight] %>, '<%= feature[:title] %>'
+<% end -%>
 end

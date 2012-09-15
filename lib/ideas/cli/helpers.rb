@@ -1,6 +1,5 @@
 require 'fileutils'
 require 'erb'
-require 'ostruct'
 
 module Ideas
   module CLI
@@ -16,7 +15,7 @@ module Ideas
       end
 
       def create_file(template, file, options = {})
-        result = ERB.new(template).result(OpenStruct.new(options).instance_eval { binding })
+        result = ERB.new(template, 0, '<>-').result(options.instance_eval { binding })
         File.write(file, result)
         puts "[info] create file #{file}"
       end

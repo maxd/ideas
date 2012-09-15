@@ -22,7 +22,19 @@ module Ideas::CLI::Commands
 
       abort 'Can\'t find empty name for new idea' if File.exists?(idea_file)
 
-      create_file_from_template 'idea.erb', idea_file
+      create_file_from_template 'idea.erb', idea_file, {
+        title: '',
+        short_description: '',
+        description: '',
+        state: :new,
+        tags: [ :idea ],
+        features: [
+          {
+            weight: 1000,
+            title: ''
+          }
+        ]
+      }
     end
 
   end
