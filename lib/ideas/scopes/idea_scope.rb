@@ -1,4 +1,4 @@
-module Ideas::Scopes
+module Ideas
 
   class IdeaScope
 
@@ -27,10 +27,10 @@ module Ideas::Scopes
     end
 
     def feature(weight, title, &block)
-      feature = Ideas::Models::Feature.new(weight, title)
+      feature = Feature.new(weight, title)
 
       feature_scope = FeatureScope.new(feature)
-      Ideas::Helpers::context_eval(feature_scope, proc: block)
+      Helpers::context_eval(feature_scope, proc: block)
 
       @idea.add_feature(feature)
     end

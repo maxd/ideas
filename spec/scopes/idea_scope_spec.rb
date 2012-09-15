@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Ideas::Scopes::IdeaScope do
+describe Ideas::IdeaScope do
 
   before do
-    @idea = Ideas::Models::Idea.new('idea')
-    @idea_scope = Ideas::Scopes::IdeaScope.new(@idea)
+    @idea = Ideas::Idea.new('idea')
+    @idea_scope = Ideas::IdeaScope.new(@idea)
   end
 
   it 'should set short description of idea' do

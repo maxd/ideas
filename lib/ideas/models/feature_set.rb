@@ -1,4 +1,4 @@
-module Ideas::Models
+module Ideas
 
   class FeatureSet
     attr_accessor :title

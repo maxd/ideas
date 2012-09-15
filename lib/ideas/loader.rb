@@ -4,7 +4,7 @@ module Ideas
     attr_reader :ideas
 
     def initialize
-      @root_scope = Scopes::RootScope.new
+      @root_scope = RootScope.new
     end
 
     def load(*args, &block)
@@ -23,7 +23,7 @@ module Ideas
         result = load(string: File.read(options[:file]), name: options[:file])
 
       else
-        Ideas::Helpers::context_eval(@root_scope, options)
+        Helpers::context_eval(@root_scope, options)
 
         result = @root_scope.context
       end

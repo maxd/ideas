@@ -1,4 +1,4 @@
-module Ideas::Models
+module Ideas
 
   class Feature
     attr_accessor :weight

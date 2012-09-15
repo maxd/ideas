@@ -1,20 +1,20 @@
 require 'spec_helper'
 
-describe Ideas::Models::Idea do
+describe Ideas::Idea do
 
   before do
-    @idea = Ideas::Models::Idea.new('idea')
+    @idea = Ideas::Idea.new('idea')
   end
 
   it 'should not have nil title' do
     expect {
-      Ideas::Models::Idea.new(nil)
+      Ideas::Idea.new(nil)
     }.to raise_error(ArgumentError)
   end
 
   it 'should not have empty title' do
     expect {
-      Ideas::Models::Idea.new('')
+      Ideas::Idea.new('')
     }.to raise_error(ArgumentError)
   end
 
@@ -28,7 +28,7 @@ describe Ideas::Models::Idea do
   context 'state field' do
 
     it 'should set known state of idea' do
-      Ideas::Models::Idea::STATES.each do |value|
+      Ideas::Idea::STATES.each do |value|
         @idea.state = value
         @idea.state.should be == value
       end
@@ -45,7 +45,7 @@ describe Ideas::Models::Idea do
   context 'visibility field' do
 
     it 'should set known visibility of idea' do
-      Ideas::Models::Idea::VISIBILITIES.each do |value|
+      Ideas::Idea::VISIBILITIES.each do |value|
         @idea.visibility = value
         @idea.visibility.should be == [value]
       end
@@ -71,7 +71,7 @@ describe Ideas::Models::Idea do
   end
 
   it 'should add feature for idea' do
-    feature = Ideas::Models::Feature.new(1000, 'feature')
+    feature = Ideas::Feature.new(1000, 'feature')
     expect {
       @idea.add_feature(feature)
     }.to change(@idea.features, :count).by(1)

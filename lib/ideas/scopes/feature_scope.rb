@@ -1,4 +1,4 @@
-module Ideas::Scopes
+module Ideas
 
   class FeatureScope
 
